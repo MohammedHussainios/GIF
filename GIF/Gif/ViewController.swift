@@ -19,9 +19,17 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView.loadGIF(with: gifURLs, completion: {
-            self.showAlert(withTitle: "", withMessage: "All GIFs are animated")
-        })
+        
+        /// Sample 1:  Loop
+//                 imageView.loadGIF(with: gifURLs, isRepeat: true)
+        
+        /// Sample 2: One time play
+//         imageView.loadGIF(with: gifURLs, isRepeat: true, completion: {
+//          self.showAlert(withTitle: "", withMessage: "All GIFs are animated")
+//         })
+        
+        /// Sample 2: One time play without alery
+         imageView.loadGIF(with: gifURLs)
     }
 }
 
