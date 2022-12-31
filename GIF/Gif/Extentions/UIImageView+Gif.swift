@@ -13,7 +13,6 @@ extension UIImageView {
         static var lastIndex: Int = 0
         static var isRepeat: Bool = false
         static var animationFinished: (()->())?
-
     }
     
     static var animationFinished: (()->())? {
@@ -24,6 +23,7 @@ extension UIImageView {
             return GIF.animationFinished
         }
     }
+    
     private var gifURLs: [String] {
         get {
             return GIF.gifURLs
