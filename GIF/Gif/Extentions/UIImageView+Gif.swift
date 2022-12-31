@@ -51,6 +51,14 @@ extension UIImageView {
         UIImageView.animationFinished = completion
     }
     
+    public func loadGIF(with URLs: [String], isRepeat: Bool = false) {
+        gifURLs = URLs
+        GIF.isRepeat = isRepeat
+        if let url = gifURLs.first {
+            loadGIF(with: url)
+        }
+    }
+    
     public func loadGIF(name: String) {
         DispatchQueue.global().async {
             let image = UIImage.gif(name: name)
