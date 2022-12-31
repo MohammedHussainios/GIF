@@ -21,15 +21,15 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         /// Sample 1:  Loop
-//                 imageView.loadGIF(with: gifURLs, isRepeat: true)
+        //  imageView.loadGIF(with: gifURLs, isRepeat: true)
         
         /// Sample 2: One time play
-         imageView.loadGIF(with: gifURLs, isRepeat: true, completion: {
-          self.showAlert(withTitle: "", withMessage: "All GIFs are animated")
-         })
+        imageView.loadGIF(with: gifURLs, completion: {
+            self.showAlert(withTitle: "", withMessage: "All GIFs are animated")
+        })
         
         /// Sample 3: One time play without alert
-//         imageView.loadGIF(with: gifURLs)
+        //  imageView.loadGIF(with: gifURLs)
     }
 }
 
