@@ -96,9 +96,9 @@ extension UIImageView {
 
     fileprivate func startGIFAnimation(_ image: UIImage) {
         DispatchQueue.main.async {
-            self.animationImages = image.images
             print("Animation Strated")
-            
+            autoreleasepool{
+                self.animationImages = image.images
             var values = [CGImage]()
             for image in image.images! {
                 values.append(image.cgImage!)
@@ -119,6 +119,7 @@ extension UIImageView {
             self.layer.add(animation, forKey: "animation")
             self.animationDuration = 1
             self.animationRepeatCount = 0
+            }
         }
     }
     
@@ -141,6 +142,10 @@ extension UIImageView: CAAnimationDelegate {
     public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         if flag {
             print("Animation finished")
+            
+            self.layer.removeAllAnimations()
+            self.image = nil
+            self.animationImages?.removeAll()
             loadNextGIF()
         }
     }
