@@ -42,14 +42,23 @@ extension UIImageView {
         }
     }
     
+    private var isRepeat: Bool {
+        get {
+            return GIF.isRepeat
+        }
+        set(newValue) {
+            GIF.isRepeat = newValue
+        }
+    }
+    
     public func loadGIF(with URLs: [String], isRepeat: Bool = false, completion: (()->())?) {
         loadGIF(with: URLs, isRepeat: isRepeat)
         UIImageView.animationFinished = completion
     }
     
     public func loadGIF(with URLs: [String], isRepeat: Bool = false) {
-        gifURLs = URLs
-        GIF.isRepeat = isRepeat
+        self.gifURLs = URLs
+        self.isRepeat = isRepeat
         if let url = gifURLs.first {
             loadGIF(with: url)
         }
